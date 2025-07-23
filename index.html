@@ -89,6 +89,7 @@
             padding: 8px;
             width: 100%;
             background-color: transparent;
+            font-size: 14px;
         }
         
         /* Chat List */
@@ -143,6 +144,7 @@
         .chat-name {
             font-weight: 500;
             color: #111b21;
+            font-size: 16px;
         }
         
         .chat-time {
@@ -164,6 +166,14 @@
             max-width: 180px;
         }
         
+        .missed-call {
+            color: #ff3b30;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
         .unread-count {
             background-color: #25d366;
             color: white;
@@ -183,7 +193,7 @@
             display: flex;
             flex-direction: column;
             background-color: #e5ddd5;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABsSURBVDhP7cxBCsAgDETR6P3P3KVLwYVQKJQO+IMLk8zHxKq1Xlprd5jZ1Vq7wszu3vsT5vYyMxERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERH5zwu9cAoxZx7k9QAAAABJRU5ErkJggg==');
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABsSURBVDhP7cxBCsAgDETR6P3P3KVLwYVQKJQO+IMLk8zHxKq1Xlprd5jZ1Vq7wszu3vsT5vYyMxERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERH5zwu9cAoxZx7k9QAAAABJRU5ErkJggg==');
         }
         
         /* Chat Header */
@@ -221,6 +231,12 @@
             color: #111b21;
         }
         
+        .chat-header-status {
+            font-size: 13px;
+            color: #667781;
+            margin-top: 2px;
+        }
+        
         .chat-header-icons {
             display: flex;
             gap: 20px;
@@ -232,6 +248,8 @@
             flex: 1;
             padding: 20px;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
         
         .message {
@@ -264,6 +282,37 @@
             margin-top: 4px;
         }
         
+        .day-divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            font-size: 12px;
+            color: #667781;
+        }
+        
+        .day-divider::before,
+        .day-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background-color: #e9edef;
+        }
+        
+        .day-divider::before {
+            left: 0;
+        }
+        
+        .day-divider::after {
+            right: 0;
+        }
+        
+        .deleted-message {
+            font-style: italic;
+            color: #667781;
+        }
+        
         /* Input Area */
         .input-container {
             padding: 10px 16px;
@@ -289,6 +338,7 @@
             padding: 9px 12px;
             width: 100%;
             background-color: transparent;
+            font-size: 15px;
         }
         
         .input-icons {
@@ -305,30 +355,21 @@
             color: #54656f;
         }
         
-        /* Empty State */
-        .empty-state {
+        /* Call Options */
+        .call-options {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-            color: #667781;
+            gap: 15px;
+            margin-right: 10px;
         }
         
-        .empty-state img {
-            width: 300px;
-            margin-bottom: 20px;
+        .call-icon {
+            color: #54656f;
+            cursor: pointer;
         }
         
-        .empty-state h2 {
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-        
-        .empty-state p {
-            max-width: 450px;
-            line-height: 1.5;
+        .video-call-icon {
+            color: #54656f;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -374,57 +415,57 @@
                     </div>
                     <div class="chat-info">
                         <div class="chat-name-time">
-                            <span class="chat-name">Sarah Johnson</span>
-                            <span class="chat-time">12:30 PM</span>
+                            <span class="chat-name">Zainab Tehreem Justice W...</span>
+                            <span class="chat-time">2/07/2025</span>
                         </div>
                         <div class="chat-preview">
-                            <span class="chat-message">Hey, how are you doing?</span>
-                            <span class="unread-count">2</span>
+                            <span class="chat-message">hi</span>
+                            <span class="unread-count">1</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="chat-item">
                     <div class="chat-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Profile">
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Profile">
                     </div>
                     <div class="chat-info">
                         <div class="chat-name-time">
-                            <span class="chat-name">Mike Williams</span>
-                            <span class="chat-time">11:45 AM</span>
+                            <span class="chat-name">RSQA Level 01 Batch 01</span>
+                            <span class="chat-time">10:54 am</span>
                         </div>
                         <div class="chat-preview">
-                            <span class="chat-message">Let's meet tomorrow at the coffee shop</span>
+                            <span class="chat-message">Maryam Zulfiqar TrainingWali: "You o...</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="chat-item">
                     <div class="chat-avatar">
-                        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Profile">
+                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Profile">
                     </div>
                     <div class="chat-info">
                         <div class="chat-name-time">
-                            <span class="chat-name">Emily Davis</span>
-                            <span class="chat-time">Yesterday</span>
+                            <span class="chat-name">Rehan School Interviews class...</span>
+                            <span class="chat-time">3:19 pm</span>
                         </div>
                         <div class="chat-preview">
-                            <span class="chat-message">Thanks for the documents!</span>
+                            <span class="chat-message">~kessar EducationWali added +92 300...</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="chat-item">
                     <div class="chat-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Profile">
+                        <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Profile">
                     </div>
                     <div class="chat-info">
                         <div class="chat-name-time">
-                            <span class="chat-name">David Wilson</span>
-                            <span class="chat-time">Yesterday</span>
+                            <span class="chat-name">Ms Zainab(G8/7pm)</span>
+                            <span class="chat-time">2:46 pm</span>
                         </div>
                         <div class="chat-preview">
-                            <span class="chat-message">The project deadline has been extended</span>
+                            <span class="chat-message">Zatineb: Dear students, today we ll c...</span>
                         </div>
                     </div>
                 </div>
@@ -435,11 +476,11 @@
                     </div>
                     <div class="chat-info">
                         <div class="chat-name-time">
-                            <span class="chat-name">Jessica Brown</span>
-                            <span class="chat-time">7/20/23</span>
+                            <span class="chat-name">Rehan college inquiry</span>
+                            <span class="chat-time">2:00 pm</span>
                         </div>
                         <div class="chat-preview">
-                            <span class="chat-message">Are you coming to the party on Friday?</span>
+                            <span class="chat-message">~Shan E Zehra joined using this grou...</span>
                         </div>
                     </div>
                 </div>
@@ -450,11 +491,31 @@
                     </div>
                     <div class="chat-info">
                         <div class="chat-name-time">
-                            <span class="chat-name">Robert Taylor</span>
-                            <span class="chat-time">7/18/23</span>
+                            <span class="chat-name">Pakistan School Owners</span>
+                            <span class="chat-time">1:08 pm</span>
                         </div>
                         <div class="chat-preview">
-                            <span class="chat-message">I'll send you the details soon</span>
+                            <span class="chat-message">~Bilai Vric: J. wow up of your job...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/7.jpg" alt="Profile">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name-time">
+                            <span class="chat-name">help</span>
+                            <span class="chat-time">12:23 pm</span>
+                        </div>
+                        <div class="chat-preview">
+                            <span class="missed-call">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#ff3b30">
+                                    <path d="M19.44 13c-.22 0-.45-.07-.67-.12a9.44 9.44 0 0 1-1.31-.39 2 2 0 0 0-2.48 1l-.22.45a12.18 12.18 0 0 1-2.66-2 12.18 12.18 0 0 1-2-2.66l.42-.28a2 2 0 0 0 1-2.48 10.33 10.33 0 0 1-.39-1.31c-.05-.22-.09-.45-.12-.68a3 3 0 0 0-3-2.49h-3a3 3 0 0 0-3 3.41 19 19 0 0 0 16.52 16.46h.38a3 3 0 0 0 2-.76 3 3 0 0 0 1-2.25v-3a3 3 0 0 0-2.47-2.9zm.5 6a1 1 0 0 1-.34.75 1.05 1.05 0 0 1-.82.25A17 17 0 0 1 4.07 5.22a1.09 1.09 0 0 1 .25-.82 1 1 0 0 1 .75-.34h3a1 1 0 0 1 1 .79q.06.41.15.81a11.12 11.12 0 0 0 .46 1.55l-1.4.65a1 1 0 0 0-.49 1.33 14.49 14.49 0 0 0 7 7 1 1 0 0 0 .76 0 1 1 0 0 0 .57-.52l.62-1.4a13.69 13.69 0 0 0 1.58.46q.4.09.81.15a1 1 0 0 1 .79 1z"/>
+                                </svg>
+                                Missed voice call
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -469,17 +530,20 @@
                     <div class="chat-header-avatar">
                         <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Profile">
                     </div>
-                    <div class="chat-header-name">Sarah Johnson</div>
+                    <div>
+                        <div class="chat-header-name">Zainab Tehreem Justice Wall</div>
+                        <div class="chat-header-status">online</div>
+                    </div>
                 </div>
                 <div class="chat-header-icons">
-                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-                        <path d="M13 7h-2v5h5v-2h-3z"/>
-                    </svg>
-                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-                        <path d="M12 17a1 1 0 0 1-1-1v-4a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zm0-8a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                    </svg>
+                    <div class="call-options">
+                        <svg class="call-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.44 13c-.22 0-.45-.07-.67-.12a9.44 9.44 0 0 1-1.31-.39 2 2 0 0 0-2.48 1l-.22.45a12.18 12.18 0 0 1-2.66-2 12.18 12.18 0 0 1-2-2.66l.42-.28a2 2 0 0 0 1-2.48 10.33 10.33 0 0 1-.39-1.31c-.05-.22-.09-.45-.12-.68a3 3 0 0 0-3-2.49h-3a3 3 0 0 0-3 3.41 19 19 0 0 0 16.52 16.46h.38a3 3 0 0 0 2-.76 3 3 0 0 0 1-2.25v-3a3 3 0 0 0-2.47-2.9zm.5 6a1 1 0 0 1-.34.75 1.05 1.05 0 0 1-.82.25A17 17 0 0 1 4.07 5.22a1.09 1.09 0 0 1 .25-.82 1 1 0 0 1 .75-.34h3a1 1 0 0 1 1 .79q.06.41.15.81a11.12 11.12 0 0 0 .46 1.55l-1.4.65a1 1 0 0 0-.49 1.33 14.49 14.49 0 0 0 7 7 1 1 0 0 0 .76 0 1 1 0 0 0 .57-.52l.62-1.4a13.69 13.69 0 0 0 1.58.46q.4.09.81.15a1 1 0 0 1 .79 1z"/>
+                        </svg>
+                        <svg class="video-call-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/>
+                        </svg>
+                    </div>
                     <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
                     </svg>
@@ -488,29 +552,70 @@
             
             <!-- Messages -->
             <div class="messages-container">
+                <div class="day-divider">Sunday</div>
+                
                 <div class="message received">
-                    Hey there! How are you?
-                    <span class="message-time">12:25 PM</span>
+                    Hello there! How are you doing today?
+                    <span class="message-time">10:30 AM</span>
                 </div>
                 
                 <div class="message sent">
-                    I'm doing great! Just finished that project we were working on.
-                    <span class="message-time">12:27 PM</span>
+                    I'm doing great, thanks for asking! How about you?
+                    <span class="message-time">10:32 AM</span>
                 </div>
                 
                 <div class="message received">
-                    That's awesome! Can you send me the files?
-                    <span class="message-time">12:28 PM</span>
+                    I'm good too. Just wanted to check if you're coming to the meeting tomorrow?
+                    <span class="message-time">10:33 AM</span>
                 </div>
                 
                 <div class="message sent">
-                    Sure thing, I'll email them to you in a bit.
-                    <span class="message-time">12:29 PM</span>
+                    Yes, I'll be there. What time was it again?
+                    <span class="message-time">10:34 AM</span>
                 </div>
                 
                 <div class="message received">
-                    Thanks! Also, are you free for lunch tomorrow?
-                    <span class="message-time">12:30 PM</span>
+                    It's at 2 PM in the conference room.
+                    <span class="message-time">10:35 AM</span>
+                </div>
+                
+                <div class="message sent">
+                    Perfect, I'll see you then!
+                    <span class="message-time">10:36 AM</span>
+                </div>
+                
+                <div class="day-divider">Monday</div>
+                
+                <div class="message received">
+                    Hi! Just a reminder about our meeting in 30 minutes.
+                    <span class="message-time">1:30 PM</span>
+                </div>
+                
+                <div class="message sent">
+                    Thanks for the reminder! I'm on my way.
+                    <span class="message-time">1:32 PM</span>
+                </div>
+                
+                <div class="message received">
+                    Great! I've set up everything in the conference room.
+                    <span class="message-time">1:33 PM</span>
+                </div>
+                
+                <div class="day-divider">Tuesday</div>
+                
+                <div class="message received">
+                    Non verbal cues Empathy Individual difference Neurotypical kids
+                    <span class="message-time">8:33 PM</span>
+                </div>
+                
+                <div class="message received deleted-message">
+                    You deleted this message
+                    <span class="message-time">10:21 PM</span>
+                </div>
+                
+                <div class="message sent">
+                    hi
+                    <span class="message-time">2/07/2025</span>
                 </div>
             </div>
             
