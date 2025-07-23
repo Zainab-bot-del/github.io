@@ -1,70 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zainab Tehreem | Justicewali</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zainab Tehreem – Personal Site</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #e0f7fa;
-      color: #023e8a;
+      color: #023047;
       margin: 0;
       padding: 0;
     }
-
     header {
       background-color: #0077b6;
       color: white;
       padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
     }
-
-    .logo {
-      font-size: 24px;
+    nav {
+      background-color: #48cae4;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
       font-weight: bold;
-      color: #48cae4;
     }
-
-    .welcome-text {
-      text-align: right;
-    }
-
     section {
-      padding: 30px;
-      max-width: 800px;
-      margin: auto;
-      background-color: #caf0f8;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2);
+      padding: 20px;
     }
-
-    h2 {
+    .social-icons a {
+      margin-right: 15px;
+      text-decoration: none;
       color: #0077b6;
     }
-
     footer {
+      background-color: #0077b6;
+      color: white;
       text-align: center;
-      background: #ade8f4;
+      padding: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+    }
+    .form-box {
+      background-color: #caf0f8;
       padding: 20px;
-      margin-top: 20px;
-      color: #023e8a;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Zainab Tehreem | Justicewali</div>
-    <div class="welcome-text">Welcome to my personal website!</div>
-  </header>
-  <section>
-    <h2>About Me</h2>
-    <p>Hi! I’m Zainab, also known as Justicewali — a passionate learner who dreams of helping others, sharing knowledge, and growing through creativity and action.</p>
-  </section>
-  <footer>
-    &copy; 2025 Zainab Tehreem. All rights reserved.
-  </footer>
+
+<header>
+  <h1>Welcome to Zainab Tehreem's Website</h1>
+  <p>Also known as Justicewali 👩‍⚖️</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#portfolio">Projects</a>
+  <a href="#blog">Blog</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I’m Zainab, a 12-year-old AI learner, digital artist, and content creator. I love helping others, learning new skills, and sharing ideas! 💡</p>
+  <p>Fun Fact: I once created 100 animal shorts in just 1 hour! 🐾</p>
+</section>
+
+<section id="portfolio">
+  <h2>My Projects</h2>
+  <ul>
+    <li>YouTube Shorts – Cute Animals Series</li>
+    <li>Faceless Dress Video Series</li>
+    <li>“Call Annie” Interview Podcast</li>
+  </ul>
+</section>
+
+<section id="blog">
+  <h2>Blog</h2>
+  <p>Coming soon! I’ll be sharing tips on AI tools, freelancing, and digital creativity.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="form-box">
+    <form>
+      <label>Name</label>
+      <input type="text" placeholder="Your name">
+      <label>Email</label>
+      <input type="email" placeholder="Your email">
+      <label>Message</label>
+      <textarea rows="4" placeholder="Your message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+<section class="social-icons">
+  <h2>Connect With Me</h2>
+  <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+  <a href="https://instagram.com" target="_blank">Instagram</a>
+  <a href="https://twitter.com" target="_blank">Twitter</a>
+</section>
+
+<section>
+  <h2>Newsletter Signup</h2>
+  <div class="form-box">
+    <form>
+      <input type="email" placeholder="Enter your email to subscribe!">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Zainab Tehreem. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
