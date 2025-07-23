@@ -1,83 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Zainab Tehreem | Justicewali</title>
-  <style>
-    body {
-      background-color: #ffc8dd;
-      font-family: Arial, sans-serif;
-      color: #222;
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
-    h1 {
-      color: #000;
-      text-align: center;
-    }
-    h2 {
-      color: #444;
-      border-bottom: 2px solid #fff;
-      padding-bottom: 5px;
-    }
-    .section {
-      margin-bottom: 25px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #e5ddd5;
+            height: 100vh;
+            display: flex;
+        }
+        
+        /* App Container */
+        .app-container {
+            width: 100%;
+            max-width: 1400px;
+            height: 95vh;
+            margin: auto;
+            display: flex;
+            background-color: #fff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 30%;
+            min-width: 300px;
+            border-right: 1px solid #e9edef;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+        }
+        
+        /* Header */
+        .header {
+            padding: 10px 16px;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #dfe5e7;
+            overflow: hidden;
+        }
+        
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            color: #54656f;
+        }
+        
+        /* Search */
+        .search-container {
+            padding: 8px 12px;
+            background-color: #f0f2f5;
+        }
+        
+        .search-box {
+            background-color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 6px 12px;
+        }
+        
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 8px;
+            width: 100%;
+            background-color: transparent;
+        }
+        
+        /* Chat List */
+        .chat-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .chat-item {
+            display: flex;
+            padding: 12px;
+            border-bottom: 1px solid #e9edef;
+            cursor: pointer;
+        }
+        
+        .chat-item:hover {
+            background-color: #f5f6f6;
+        }
+        
+        .chat-item.active {
+            background-color: #f0f2f5;
+        }
+        
+        .chat-avatar {
+            width: 49px;
+            height: 49px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background-color: #dfe5e7;
+            overflow: hidden;
+        }
+        
+        .chat-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .chat-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .chat-name-time {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        
+        .chat-name {
+            font-weight: 500;
+            color: #111b21;
+        }
+        
+        .chat-time {
+            font-size: 11px;
+            color: #667781;
+        }
+        
+        .chat-preview {
+            display: flex;
+            align-items: center;
+        }
+        
+        .chat-message {
+            font-size: 14px;
+            color: #667781;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+        
+        .unread-count {
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 6px;
+        }
+        
+        /* Main Chat Area */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #e5ddd5;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABsSURBVDhP7cxBCsAgDETR6P3P3KVLwYVQKJQO+IMLk8zHxKq1Xlprd5jZ1Vq7wszu3vsT5vYyMxERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERH5zwu9cAoxZx7k9QAAAABJRU5ErkJggg==');
+        }
+        
+        /* Chat Header */
+        .chat-header {
+            padding: 10px 16px;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 1px solid #e9edef;
+        }
+        
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .chat-header-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background-color: #dfe5e7;
+            overflow: hidden;
+        }
+        
+        .chat-header-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .chat-header-name {
+            font-weight: 500;
+            color: #111b21;
+        }
+        
+        .chat-header-icons {
+            display: flex;
+            gap: 20px;
+            color: #54656f;
+        }
+        
+        /* Messages */
+        .messages-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            max-width: 65%;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 7.5px;
+            font-size: 14.2px;
+            line-height: 19px;
+            position: relative;
+        }
+        
+        .received {
+            background-color: #fff;
+            align-self: flex-start;
+            box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+        }
+        
+        .sent {
+            background-color: #d9fdd3;
+            align-self: flex-end;
+            box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+        }
+        
+        .message-time {
+            font-size: 11px;
+            color: #667781;
+            float: right;
+            margin-left: 8px;
+            margin-top: 4px;
+        }
+        
+        /* Input Area */
+        .input-container {
+            padding: 10px 16px;
+            background-color: #f0f2f5;
+            display: flex;
+            align-items: center;
+            border-left: 1px solid #e9edef;
+        }
+        
+        .input-box {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 5px 12px;
+            margin: 0 10px;
+        }
+        
+        .input-box input {
+            border: none;
+            outline: none;
+            padding: 9px 12px;
+            width: 100%;
+            background-color: transparent;
+        }
+        
+        .input-icons {
+            display: flex;
+            gap: 15px;
+            color: #54656f;
+        }
+        
+        /* Icons */
+        .icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            color: #54656f;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            color: #667781;
+        }
+        
+        .empty-state img {
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        
+        .empty-state h2 {
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        .empty-state p {
+            max-width: 450px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
-
-  <h1>👩‍⚖️ Zainab Tehreem | Justicewali</h1>
-  <p><strong>From:</strong> Pindi Gujaran, Punjab, Pakistan</p>
-  <p><strong>Lives in:</strong> Pindi Gheb</p>
-  <p><strong>School:</strong> British School of Oxford – Pindigheb Campus</p>
-
-  <div class="section">
-    <h2>🌟 About Me</h2>
-    <p>I’m a proud student of Rehan School Online Academy. I dream big, work hard, and stand for justice, fairness, and truth. I'm also a future gamer, music lover, and digital explorer.</p>
-  </div>
-
-  <div class="section">
-    <h2>🎯 My Goals</h2>
-    <ul>
-      <li>Become a top gamer & game developer</li>
-      <li>Stand for truth and justice</li>
-      <li>Help the poor and become a billionaire philanthropist</li>
-      <li>Explore the world and learn AI</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>🎮 Hobbies & Passions</h2>
-    <ul>
-      <li>Gaming</li>
-      <li>Music</li>
-      <li>Learning AI & digital skills</li>
-      <li>Travelling</li>
-      <li>Helping others</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>📌 Contact</h2>
-    <p>Email: zain.abtehreem@example.com</p>
-    <p>Social Media: @zainab-tehreem-justicewali</p>
-  </div>
-
-  <footer>
-    Copyright © 2025 Zainab Tehreem | Justicewali
-  </footer>
-
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Header -->
+            <div class="header">
+                <div class="user-avatar">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile">
+                </div>
+                <div class="header-icons">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                        <path d="M13 7h-2v5h5v-2h-3z"/>
+                    </svg>
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                        <path d="M12 17a1 1 0 0 1-1-1v-4a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zm0-8a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </svg>
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Search -->
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                    <input type="text" placeholder="Search or start new chat">
+                </div>
+            </div>
+            
+            <!-- Chat List -->
+            <div class="chat-list">
+                <div class="chat-item active">
+                    <div class="chat-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Profile">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name-time">
+                            <span class="chat-name">Sarah Johnson</span>
+                            <span class="chat-time">12:30 PM</span>
+                        </div>
+                        <div class="chat-preview">
+                            <span class="chat-message">Hey, how are you doing?</span>
+                            <span class="unread-count">2</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Profile">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name-time">
+                            <span class="chat-name">Mike Williams</span>
+                            <span class="chat-time">11:45 AM</span>
+                        </div>
+                        <div class="chat-preview">
+                            <span class="chat-message">Let's meet tomorrow at the coffee shop</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Profile">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name-time">
+                            <span class="chat-name">Emily Davis</span>
+                            <span class="chat-time">Yesterday</span>
+                        </div>
+                        <div class="chat-preview">
+                            <span class="chat-message">Thanks for the documents!</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Profile">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name-time">
+                            <span class="chat-name">David Wilson</span>
+                            <span class="chat-time">Yesterday</span>
+                        </div>
+                        <div class="chat-preview">
+                            <span class="chat-message">The project deadline has been extended</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Profile">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name-time">
+                            <span class="chat-name">Jessica Brown</span>
+                            <span class="chat-time">7/20/23</span>
+                        </div>
+                        <div class="chat-preview">
+                            <span class="chat-message">Are you coming to the party on Friday?</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/6.jpg" alt="Profile">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name-time">
+                            <span class="chat-name">Robert Taylor</span>
+                            <span class="chat-time">7/18/23</span>
+                        </div>
+                        <div class="chat-preview">
+                            <span class="chat-message">I'll send you the details soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-header-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Profile">
+                    </div>
+                    <div class="chat-header-name">Sarah Johnson</div>
+                </div>
+                <div class="chat-header-icons">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                        <path d="M13 7h-2v5h5v-2h-3z"/>
+                    </svg>
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                        <path d="M12 17a1 1 0 0 1-1-1v-4a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zm0-8a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </svg>
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Messages -->
+            <div class="messages-container">
+                <div class="message received">
+                    Hey there! How are you?
+                    <span class="message-time">12:25 PM</span>
+                </div>
+                
+                <div class="message sent">
+                    I'm doing great! Just finished that project we were working on.
+                    <span class="message-time">12:27 PM</span>
+                </div>
+                
+                <div class="message received">
+                    That's awesome! Can you send me the files?
+                    <span class="message-time">12:28 PM</span>
+                </div>
+                
+                <div class="message sent">
+                    Sure thing, I'll email them to you in a bit.
+                    <span class="message-time">12:29 PM</span>
+                </div>
+                
+                <div class="message received">
+                    Thanks! Also, are you free for lunch tomorrow?
+                    <span class="message-time">12:30 PM</span>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="input-icons">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                        <path d="M13 7h-2v5h5v-2h-3z"/>
+                    </svg>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Type a message">
+                </div>
+                <div class="input-icons">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                        <path d="M13 7h-2v5h5v-2h-3z"/>
+                    </svg>
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
