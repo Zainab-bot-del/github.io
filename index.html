@@ -62,6 +62,14 @@
             border: none;
             border-radius: 3px;
         }
+
+        #edition-display {
+            font-weight: 600;
+            color: #fff;
+            background: #900;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
         
         .header-main {
             display: flex;
@@ -490,7 +498,9 @@
                         <option value="international">International</option>
                         <option value="arabic">Arabic</option>
                         <option value="espanol">Español</option>
+                        <option value="cnn">CNN</option>
                     </select>
+                    <span id="edition-display">US</span>
                 </div>
             </div>
         </div>
@@ -614,7 +624,7 @@
                 <img src="https://source.unsplash.com/random/400x250/?europe" alt="Europe News">
                 <div class="news-card-content">
                     <div class="news-card-tag">Europe</div>
-                    <h3 class="news-card-title">European Union Announces New Economic Recovery Plan</h3>
+                    <h3 class="news-card-title">European Union Announces New Digital Regulation Framework</h3>
                     <div class="news-card-meta">Updated 7 hours ago</div>
                 </div>
             </div>
@@ -623,7 +633,7 @@
                 <img src="https://source.unsplash.com/random/400x250/?asia" alt="Asia News">
                 <div class="news-card-content">
                     <div class="news-card-tag">Asia</div>
-                    <h3 class="news-card-title">Trade Agreement Signed Between Pacific Nations</h3>
+                    <h3 class="news-card-title">Economic Growth in Asia Surpasses Global Expectations</h3>
                     <div class="news-card-meta">Updated 8 hours ago</div>
                 </div>
             </div>
@@ -632,7 +642,7 @@
                 <img src="https://source.unsplash.com/random/400x250/?africa" alt="Africa News">
                 <div class="news-card-content">
                     <div class="news-card-tag">Africa</div>
-                    <h3 class="news-card-title">Infrastructure Projects Boost Economic Growth Across Continent</h3>
+                    <h3 class="news-card-title">New Infrastructure Projects Aim to Boost Regional Connectivity</h3>
                     <div class="news-card-meta">Updated 9 hours ago</div>
                 </div>
             </div>
@@ -641,60 +651,55 @@
     
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Regions</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">U.S.</a></li>
-                        <li><a href="#">Africa</a></li>
-                        <li><a href="#">Americas</a></li>
-                        <li><a href="#">Asia</a></li>
-                        <li><a href="#">China</a></li>
-                        <li><a href="#">Europe</a></li>
-                        <li><a href="#">Middle East</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>More CNN</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">CNN Business</a></li>
-                        <li><a href="#">CNN Underscored</a></li>
-                        <li><a href="#">CNN Audio</a></li>
-                        <li><a href="#">CNN Español</a></li>
-                        <li><a href="#">CNN Arabic</a></li>
-                        <li><a href="#">CNN en Français</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>About</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Advertise With Us</a></li>
-                        <li><a href="#">CNN Store</a></li>
-                        <li><a href="#">Press Room</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <p>Stay connected with CNN through our social media channels:</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>World</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Africa</a></li>
+                    <li><a href="#">Americas</a></li>
+                    <li><a href="#">Asia</a></li>
+                    <li><a href="#">Australia</a></li>
+                    <li><a href="#">China</a></li>
+                    <li><a href="#">Europe</a></li>
+                    <li><a href="#">India</a></li>
+                    <li><a href="#">Middle East</a></li>
+                </ul>
             </div>
             
+            <div class="footer-column">
+                <h3>Politics</h3>
+                <ul class="footer-links">
+                    <li><a href="#">US Politics</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Global Affairs</a></li>
+                    <li><a href="#">Elections</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Entertainment</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Television</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Celebrity</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Follow CNN</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
             <div class="copyright">
-                <p>&copy; 2023 Cable News Network. A Warner Bros. Discovery Company. All Rights Reserved.</p>
+                &copy; 2025 Cable News Network. A Warner Bros. Discovery Company. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -712,8 +717,6 @@
             <li><a href="#">Style</a></li>
             <li><a href="#">Travel</a></li>
             <li><a href="#">Sports</a></li>
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Live TV</a></li>
         </ul>
     </div>
     
@@ -724,63 +727,44 @@
         </div>
         <button class="close-search" id="search-close"><i class="fas fa-times"></i></button>
     </div>
-
+    
     <script>
-        // Current Date
-        function updateDate() {
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
-        }
+        // Current date
+        document.getElementById('current-date').textContent = new Date().toDateString();
         
-        updateDate();
+        // Edition picker
+        const editionSelect = document.getElementById('edition-select');
+        const editionDisplay = document.getElementById('edition-display');
         
-        // Mobile Menu Functionality
+        editionSelect.addEventListener('change', function() {
+            const selectedEdition = this.options[this.selectedIndex].text;
+            editionDisplay.textContent = selectedEdition;
+        });
+        
+        // Mobile menu
         const menuOpen = document.getElementById('menu-open');
         const menuClose = document.getElementById('menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
         
         menuOpen.addEventListener('click', () => {
             mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
         });
         
         menuClose.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
         });
         
-        // Search Modal Functionality
+        // Search modal
         const searchOpen = document.getElementById('search-open');
         const searchClose = document.getElementById('search-close');
         const searchModal = document.getElementById('search-modal');
         
         searchOpen.addEventListener('click', () => {
             searchModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
         });
         
         searchClose.addEventListener('click', () => {
             searchModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Edition Select Functionality
-        const editionSelect = document.getElementById('edition-select');
-        editionSelect.addEventListener('change', function() {
-            alert(`Edition changed to ${this.options[this.selectedIndex].text}`);
-        });
-        
-        // News Card Hover Effect
-        const newsCards = document.querySelectorAll('.news-card');
-        newsCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.15)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.1)';
-            });
         });
     </script>
 </body>
